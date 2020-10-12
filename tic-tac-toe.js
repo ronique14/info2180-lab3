@@ -3,7 +3,7 @@ window.onload = function () {
     const square = document.querySelectorAll("#board div");
     const winningMessage = () => document.querySelector("#status div") 
     const winningMessageElement = document.getElementById("winningMessage");
-    const newGameButton = document.getElementById("btn");
+    const newGameButton = document.getElementsByClassName("btn");
    
 
 
@@ -66,7 +66,7 @@ window.onload = function () {
         endGame(true)
     }
 
-    this.positions = Array.from(square);
+    //this.positions = Array.from(winningCombo);
 
      function checkWin () {
         let winner = false;
@@ -83,10 +83,10 @@ window.onload = function () {
 
         const positions = this.positions;
 
-        winningCombo.forEach((combo) => {
-            const pos0InnerText = positions[combo[0]].innerText;
-            const pos1InnerText = positions[combo[1]].innerText;
-            const pos2InnerText = positions[combo[2]].innerText;
+        winningCombo.forEach((winningCombo) => {
+            const pos0InnerText = positions[winningCombo[0]].innerText;
+            const pos1InnerText = positions[winningCombo[1]].innerText;
+            const pos2InnerText = positions[winningCombo[2]].innerText;
 
             const isCombo = pos0InnerText != '' &&
                 pos0InnerText === pos1InnerText &&
@@ -104,7 +104,7 @@ window.onload = function () {
         });
 
         return winner;
-
+         console.log(winner);
     }
 
     function endGame(draw) {
